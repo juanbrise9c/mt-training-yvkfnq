@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
 export class DataService {
   constructor(private http: HttpClient) {}
 
-  getData(): Observable<Object> {
-    return this.http.get('../../assets/mock-data.json');
+  getData(setError?: boolean): Observable<Object> {
+    const url = !setError ? '../../assets/mock-data.json' : 'WRONG URL';
+    return this.http.get(url);
   }
 }

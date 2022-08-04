@@ -15,7 +15,8 @@ export class MtSampleListIndexComponent {
   onDestroy = new Subject<void>();
 
   // Variables and const
-  farms = [];
+  setError: boolean = false;
+  farms: Farm[] = [];
   filter = new FormControl({ value: 'All', disabled: false });
   filters = {
     'Active Date': (data: Farm) =>
@@ -26,7 +27,7 @@ export class MtSampleListIndexComponent {
 
   constructor(private _dataService: DataService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.setFilterListener();
   }
 
@@ -36,9 +37,9 @@ export class MtSampleListIndexComponent {
       .subscribe((e) => this.getData());
   }
 
-  getData(): void {
+  getData(setError?: boolean): void {
     this._dataService
-      .getData()
+      .getData(setError)
       .pipe(
         map((farms: Farm[]) => farms.filter(this.filters[this.filter.value]))
       )
