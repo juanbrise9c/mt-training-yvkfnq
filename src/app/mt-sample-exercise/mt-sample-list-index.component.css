@@ -14,6 +14,18 @@
   overflow-y: auto;
 }
 
+@media only screen and (max-width: 900px) {
+  .table-container {
+    max-height: 250px;
+  }
+}
+
+.sticky {
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+}
+
 .farm-row {
   cursor: pointer;
 }

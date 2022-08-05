@@ -16,12 +16,14 @@
 </div>
 <div class="row mt-2 table-container">
   <table class="table">
-    <thead>
+    <thead class="sticky">
       <tr>
         <th scope="col">Farm No</th>
         <th scope="col">Farm Name</th>
         <th scope="col">Active Date</th>
       </tr>
+    </thead>
+    <tbody>
       <tr
         class="farm-row"
         *ngFor="let farm of farmsOptions | async"
@@ -31,6 +33,6 @@
         <td>{{ farm.FarmName }}</td>
         <td>{{ farm.ActiveDate | date }}</td>
       </tr>
-    </thead>
+    </tbody>
   </table>
 </div>
