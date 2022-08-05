@@ -19,8 +19,8 @@ export class ErrorInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
-        alert('An exception occurred manually');
-        return throwError('An exception occurred manually');
+        alert('An exception occurred manually, please try it again.');
+        return throwError('An exception occurred manually, please try it again.');
       })
     );
   }
