@@ -5,5 +5,5 @@ import { GridAllModule, EditService, ToolbarService, SortService } from '@syncfu
 export const SF_MODULES = [
   ComboBoxModule,
   AutoCompleteModule,
-  GridAllModule
+  // GridAllModule
 ];
