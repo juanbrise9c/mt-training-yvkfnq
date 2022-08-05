@@ -14,10 +14,10 @@ import { FormControl } from '@angular/forms';
 export class MtSampleListIndexComponent {
   // RXJS
   onDestroy = new Subject<void>();
+  farmsOptions: Observable<Farm[]>;
 
   // Variables and const
   setError: boolean = false;
-  farms: Farm[] = [];
   filter = new FormControl({ value: 'All', disabled: false });
   filters = {
     'Active Date': (data: Farm) => new Date(data.ActiveDate).getFullYear() == 2020,
@@ -41,15 +41,11 @@ export class MtSampleListIndexComponent {
   }
 
   getData(setError?: boolean): void {
-    this._dataService
+    this.farmsOptions = this._dataService
       .getData(setError)
       .pipe(
         map((farms: Farm[]) => farms.filter(this.filters[this.filter.value]))
-      )
-      .subscribe((farms: Farm[]) => {
-        console.log('Data: ', farms);
-        this.farms = farms;
-      });
+      );
   }
 
   setFarm(farm: Farm): void {

@@ -17,7 +17,7 @@ import {
 export class MtSampleDetailComponent {
   // RXJS
   onDestroy = new Subject<void>();
-
+  // Variables
   farm: Farm;
 
   constructor(private _selectedFarmService: SelectedFarmService) {}

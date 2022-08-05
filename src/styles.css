@@ -1,1 +1,8 @@
 /* Add application styles & imports to this file! */
+.title-as-h5 {
+  text-align: center;
+  font-weight: bold;
+  font-family: inherit;
+  color: #747474;
+  font-size: 30px;
+}
