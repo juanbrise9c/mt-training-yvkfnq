@@ -15,13 +15,23 @@ import {
   styleUrls: ['mt-sample-detail.component.css'],
 })
 export class MtSampleDetailComponent {
-  farm: Farm = {
-    ActiveDate: new Date('2018-03-05T00:00:00'),
-    Address: 'FARM ADDRESS DEMO',
-    FarmName: 'FARM NAME 2020000',
-    FarmNo: '100FFM2020000',
-    Id: 1,
-  };
+  // RXJS
+  onDestroy = new Subject<void>();
 
-  constructor() {}
+  farm: Farm;
+
+  constructor(private _selectedFarmService: SelectedFarmService) {}
+
+  ngOnInit() {
+    this._selectedFarmService.currentFarm
+      .pipe(takeUntil(this.onDestroy))
+      .subscribe((currentFarm: Farm) => {
+        this.farm = currentFarm;
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.onDestroy.next();
+    this.onDestroy.unsubscribe();
+  }
 }

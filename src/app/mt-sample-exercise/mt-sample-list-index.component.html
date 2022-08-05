@@ -23,7 +23,7 @@
         <th scope="col">Farm Name</th>
         <th scope="col">Active Date</th>
       </tr>
-      <tr class="farm-row" *ngFor="let farm of farms">
+      <tr class="farm-row" *ngFor="let farm of farms" (click)="setFarm(farm)">
         <td>{{ farm.FarmNo }}</td>
         <td>{{ farm.FarmName }}</td>
         <td>{{ farm.ActiveDate | date }}</td>

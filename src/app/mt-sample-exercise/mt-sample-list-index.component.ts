@@ -20,13 +20,15 @@ export class MtSampleListIndexComponent {
   farms: Farm[] = [];
   filter = new FormControl({ value: 'All', disabled: false });
   filters = {
-    'Active Date': (data: Farm) =>
-      new Date(data.ActiveDate).getFullYear() == 2020,
-    No: (data: Farm) => data.FarmNo.startsWith('100'),
-    All: (data: Farm) => data,
+    'Active Date': (data: Farm) => new Date(data.ActiveDate).getFullYear() == 2020,
+    'No': (data: Farm) => data.FarmNo.startsWith('100'),
+    'All': (data: Farm) => data,
   };
 
-  constructor(private _dataService: DataService) {}
+  constructor(
+    private _dataService: DataService,
+    private _selectedFarmService: SelectedFarmService
+  ) {}
 
   ngOnInit(): void {
     this.setFilterListener();
@@ -48,6 +50,10 @@ export class MtSampleListIndexComponent {
         console.log('Data: ', farms);
         this.farms = farms;
       });
+  }
+
+  setFarm(farm: Farm): void {
+    this._selectedFarmService.setFarm(farm);
   }
 
   ngOnDestroy(): void {
