@@ -1,23 +1,21 @@
 <h5>Farms List</h5>
 <div class="row">
-  <div class="col-md-6">
+  <div class="col">
     <!-- This is the filter: by No and by Active Date -->
-    <div class="form-group">
-      <label for="filterDowpDown">Filter By</label>
-      <select class="form-control" [formControl]="filter">
+    <div class="filter-container">
+      <div>Filter By</div>
+      <select class="form-control custom-select" [formControl]="filter">
         <option value="All">All</option>
         <option value="Active Date">Active Date</option>
         <option value="No">No</option>
       </select>
+      <button class="btn btn-outline-danger btn-sm" (click)="getData(true)">
+        Error Button
+      </button>
     </div>
   </div>
-  <div class="col-md-6">
-    <button class="btn btn-outline-danger btn-sm" (click)="getData(true)">
-      Error Button
-    </button>
-  </div>
 </div>
-<div class="row mt-2">
+<div class="row mt-2 table-container">
   <table class="table">
     <thead>
       <tr>
@@ -25,15 +23,11 @@
         <th scope="col">Farm Name</th>
         <th scope="col">Active Date</th>
       </tr>
-      <tr *ngFor="let farm of farms">
+      <tr class="farm-row" *ngFor="let farm of farms">
         <td>{{ farm.FarmNo }}</td>
         <td>{{ farm.FarmName }}</td>
         <td>{{ farm.ActiveDate | date }}</td>
       </tr>
     </thead>
   </table>
-</div>
-
-<div class="row">
-  <!-- The sf grid should be here -->
 </div>

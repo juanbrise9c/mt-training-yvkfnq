@@ -9,6 +9,7 @@ import { FormControl } from '@angular/forms';
 @Component({
   selector: 'mt-sample-list',
   templateUrl: './mt-sample-list-index.component.html',
+  styleUrls: ['./mt-sample-list-index.component.css'],
 })
 export class MtSampleListIndexComponent {
   // RXJS

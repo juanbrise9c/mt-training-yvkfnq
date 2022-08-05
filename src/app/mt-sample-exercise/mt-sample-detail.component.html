@@ -1,1 +1,42 @@
-<h5>Farm Selected</h5>
+<div class="row">
+  <div class="col-12">
+    <h5>Farm Selected</h5>
+    <!-- <div class="details-container">
+      <div class="detail-row">
+        <div class="title">ID</div>
+        <div class="value">{{ farm.Id }}</div>
+      </div>
+      <div class="detail-row">
+        <div class="title">FarmNo</div>
+        <div class="value">{{ farm.FarmNo }}</div>
+      </div>
+      <div class="detail-row">
+        <div class="title">FarmName</div>
+        <div class="value">{{ farm.FarmName }}</div>
+      </div>
+      <div class="detail-row">
+        <div class="title">Address</div>
+        <div class="value">{{ farm.Address }}</div>
+      </div>
+      <div class="detail-row">
+        <div class="title">ActiveDate</div>
+        <div class="value">{{ farm.ActiveDate | date }}</div>
+      </div>
+    </div> -->
+
+    <div class="details-container">
+      <div class="card" style="width: 18rem;">
+        <img
+          src="https://modernfarmer.com/wp-content/uploads/2013/08/Farmland.jpg"
+          class="card-img-top"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ farm.FarmName }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ farm.FarmNo }}</h6>
+          <p class="card-text">{{ farm.Address }}</p>
+          <p class="card-date">{{ farm.ActiveDate | date }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

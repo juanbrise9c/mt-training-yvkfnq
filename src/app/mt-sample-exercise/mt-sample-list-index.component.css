@@ -1,0 +1,23 @@
+.filter-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.custom-select {
+  max-width: 200px;
+  height: 35px;
+}
+
+.table-container {
+  max-height: 450px;
+  overflow-y: auto;
+}
+
+.farm-row {
+  cursor: pointer;
+}
+
+.farm-row:hover {
+  background-color: rgb(221, 221, 221);
+}
